@@ -1,0 +1,82 @@
+@charset "ISO-8859-1";
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #1e1e1e,
+    #2c3e50,
+    #4b79a1
+  ); /* Gradient background */
+  color: #ffffff; /* Light text color for contrast */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-heading {
+  text-align: center;
+  color: #f60202; /* Light color for the heading */
+  margin-bottom: 20px; /* Add some space below the heading */
+}
+
+.login-form {
+  background-color: rgba(
+    30,
+    30,
+    30,
+    0.8
+  ); /* Semi-transparent dark background for form */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Semi-transparent white shadow */
+  text-align: left; /* Align form elements to the left */
+  max-width: 400px; /* Limit form width for better readability */
+  width: 100%; /* Ensure form takes full width of its container */
+  margin: auto; /* Center the form horizontally */
+}
+
+.label {
+  color: #ffffff; /* Light color for labels */
+}
+
+.inp-box {
+  display: flex;
+  align-items: center;
+  background-color: #333333;
+  border-radius: 5px;
+}
+
+.inp-box img {
+  width: 25px;
+  cursor: pointer;
+}
+
+.input-field {
+  width: calc(100% - 22px); /* Adjust width to fit within form padding */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333333; /* Dark background for input fields */
+  color: #ffffff; /* Light text color */
+}
+
+.but {
+  text-align: center;
+}
+
+.submit-button {
+  background-color: #4caf50;
+  color: #ffffff; /* White text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #8e44ad; /* Darker purple on hover */
+}

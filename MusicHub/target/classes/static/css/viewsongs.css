@@ -1,0 +1,97 @@
+body {
+    background-color: #141414;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 70px; /* Give space for the player at the bottom */
+}
+
+table.song-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th.header, td.song-cell {
+    padding: 15px;
+    text-align: left;
+}
+
+th.header {
+    background-color: #1e1e1e;
+    color: #bbbbbb;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+td.song-cell {
+    border-bottom: 1px solid #333333;
+}
+
+tr:nth-child(even) {
+    background-color: #1e1e1e;
+}
+
+tr:nth-child(odd) {
+    background-color: #252525;
+}
+
+tr:hover {
+    background-color: #333333;
+}
+
+.name-cell, .artist-cell, .genre-cell {
+    width: 30%;
+}
+
+.play-cell {
+    width: 10%;
+    text-align: center;
+}
+
+#music-player {
+    position: fixed;
+    bottom: 0;
+    left: 10;
+    width: 95%;
+    background-color: #1e1e1e;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333;
+}
+
+#music-player .song-info {
+    display: flex;
+    align-items: center;
+}
+
+#music-player .controls {
+    display: flex;
+    align-items: center;
+}
+
+#music-player button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+#music-player button:hover {
+    color: #bbbbbb;
+}
+
+#volume-control {
+    display: flex;
+    align-items: center;
+}
+
+#volume-control input[type=range] {
+    margin-left: 10px;
+    cursor: pointer;
+}

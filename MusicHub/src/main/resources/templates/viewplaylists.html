@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Display Playlists</title>
+</head>
+<body bgcolor=lightblue>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Playlist</th>
+				<th>Songs</th>
+			</tr>
+			
+		</thead>
+		<tbody>
+			<tr th:each="list : ${lists}">
+				<td th:text="${list.name}" style="background-color:yellow;padding:0px 10px"></td>
+				<td>
+					<div  th:each="song:${list.songs}" style="background-color:yellow;margin:5px;display:flex;text-align:center;justify-content:  space-between;padding:3px">
+						<span th:text="${song.name}" style="margin-right:5px"></span>
+						<audio controls style="width: 300px; height: 25px;margin-top:2px">
+							<source th:src="${song.link}" />
+						</audio>
+					</div>
+				</td>
+				
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

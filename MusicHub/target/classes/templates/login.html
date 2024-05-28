@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css" />
+  </head>
+  <body>
+    <form class="login-form" method="post" action="/validate">
+      <h2 class="login-heading">Login Form</h2>
+
+      <label class="label" for="email">Email : </label>
+      <input class="input-field" type="email" name="email" required /><br /><br />
+
+      <label class="label" for="password">Password : </label>
+      <div class="inp-box">
+        <input id="pass" class="input-field" type="password" name="password" required/>
+        <img id="eyeicon" src="/image/eye-close.png" />
+      </div>
+      <br /><br />
+
+      <div class="but">
+        <input class="submit-button" type="submit" value="Login" />
+      </div>
+    </form>
+
+    <script>
+      let eyeicon = document.getElementById("eyeicon");
+      let pass = document.getElementById("pass");
+      eyeicon.onclick = function () {
+        if (pass.type == "password") {
+          pass.type = "text";
+          eyeicon.src = "/image/eye-open.png";
+        } else {
+          pass.type = "password";
+          eyeicon.src = "/image/eye-close.png";
+        }
+      };
+    </script>
+  </body>
+</html>

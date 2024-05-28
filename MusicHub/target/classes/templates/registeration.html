@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="/css/registeration.css" />
+  </head>
+  <body>
+    <form class="registration-form" method="post" action="/registered">
+      <h2 class="registration-heading">Registration Form</h2>
+      <label class="label" for="username">Username : </label>
+      <input
+        class="input-field"
+        type="text"
+        name="username"
+        required
+      /><br /><br />
+
+      <label class="label" for="email">Email : </label>
+      <input
+        class="input-field"
+        type="email"
+        name="email"
+        required
+      /><br /><br />
+
+      <label class="label" for="password">Password : </label>
+      <div class="inp-box">
+        <input
+          id="pass"
+          class="input-field"
+          type="password"
+          name="password"
+          required
+        />
+        <img id="eyeicon" src="/image/eye-close.png" />
+      </div>
+      <br /><br />
+
+      <label class="label" for="gender">Gender : </label><br />
+      <input
+        class="radio-input"
+        type="radio"
+        name="gender"
+        value="male"
+      /><label>Male</label>
+      <input
+        class="radio-input"
+        type="radio"
+        name="gender"
+        value="female"
+      /><label>Female</label>
+      <input
+        class="radio-input"
+        type="radio"
+        name="gender"
+        value="other"
+      /><label>Other</label><br /><br />
+
+      <label class="label" for="role">Role : </label><br />
+      <input class="radio-input" type="radio" name="role" value="admin" /><label
+        >Admin</label
+      >
+      <input
+        class="radio-input"
+        type="radio"
+        name="role"
+        value="customer"
+      /><label>Customer</label><br /><br />
+
+      <label class="label" for="phone">Phone Number : </label>
+      <input
+        class="input-field"
+        type="text"
+        name="phone"
+        required
+      /><br /><br />
+
+      <label class="label" for="dob">Date Of Birth : </label>
+      <input class="input-field" type="date" name="dob" required /><br /><br />
+
+      <label class="label" for="address">Address</label>
+      <textarea class="input-field" name="address" required></textarea
+      ><br /><br />
+
+      <div class="but">
+        <input class="submit-button" type="submit" value="Submit" />
+      </div>
+    </form>
+
+    <script>
+      let eyeicon = document.getElementById("eyeicon");
+      let pass = document.getElementById("pass");
+      eyeicon.onclick = function () {
+        if (pass.type == "password") {
+          pass.type = "text";
+          eyeicon.src = "/image/eye-open.png";
+        } else {
+          pass.type = "password";
+          eyeicon.src = "/image/eye-close.png";
+        }
+      };
+    </script>
+  </body>
+</html>
