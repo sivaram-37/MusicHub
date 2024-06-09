@@ -10,7 +10,11 @@ public interface UserService {
 
 	boolean validate(String email, String password);
 
-	boolean fetchRole(String email);
+	String fetchRole(String email);
+
+	User getUser(String mail);
+
+	void updateUser(User user);
 
 	
 

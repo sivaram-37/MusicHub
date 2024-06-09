@@ -46,7 +46,7 @@ h2 {
   text-align: center;
 }
 
-button {
+button,.but {
   background-color: #4caf50; /* Purple background for button */
   color: #ffffff; /* White text color */
   padding: 10px 20px;
@@ -56,6 +56,8 @@ button {
   font-size: 16px;
 }
 
-button:hover {
+button:hover,.but:hover {
   background-color: #8e44ad; /* Darker purple on hover */
 }
+
+

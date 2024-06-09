@@ -4,21 +4,52 @@
 <meta charset="ISO-8859-1">
 <title>Customer Home</title>
 <link rel="stylesheet" href="/css/adminhome.css" />
+<link rel="stylesheet" href="/css/viewsongs.css" />
+
 </head>
 <body>
-	<h2>Customer Home</h2>
-	<div class="outer-box">
-	<div class="button-box">
-        <form action="playsong">
-          <button>Play Song</button>
-        </form>
-    </div>
 	
-	<div class="button-box">
-        <form action="logout">
-          <button>Logout</button>
-        </form>
-      </div>
-      </div>
+	<div th:unless="${ispremium}" class="non-premium">
+		<div class="outer-box">
+			<div class="button-box">
+				<form action="pay">
+					<input class="" type="submit" value="GET PREMIUM">
+				</form>
+			</div>
+
+			<div class="button-box">
+				<form action="logout">
+					<button>Logout</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div th:if="${ispremium}" class="premium">
+		<div class="song-div">
+    <table class="song-table">
+        <thead>
+            <tr>
+                <th class="header">Tracks</th>
+                <th class="header">Artists</th>
+                <th class="header">Genre</th>
+                <th class="header">Play</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="song : ${songs}">
+                <td class="song-cell name-cell" th:text="${song.name}"></td>
+                <td class="song-cell artist-cell" th:text="${song.artist}"></td>
+                <td class="song-cell genre-cell" th:text="${song.genre}"></td>
+                <td class="song-cell play-cell">
+                    <button onclick="playSong('${song.name}', '${song.artist}', '${song.link}')">Play</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+	</div>
+
+
 </body>
 </html>

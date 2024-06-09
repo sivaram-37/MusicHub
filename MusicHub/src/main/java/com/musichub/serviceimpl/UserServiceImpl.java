@@ -45,14 +45,19 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean fetchRole(String email) {
+	public String fetchRole(String email) {
 		User user = userRepository.findByEmail(email);
-		String role=user.getRole();
-		System.out.println(user.getRole());
-		if(role.equals("admin")) {
-			return true;
-		}
-		return false;
+		return user.getRole();
+	}
+
+	@Override
+	public User getUser(String mail) {
+		return userRepository.findByEmail(mail);
+	}
+
+	@Override
+	public void updateUser(User user) {
+		userRepository.save(user);
 	}
 
 
