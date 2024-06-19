@@ -1,40 +1,77 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="/css/login.css" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../CSS/login.css" />
+    <link rel="icon" href="../image/logo.jpg" />
   </head>
   <body>
-    <form class="login-form" method="post" action="/validate">
-      <h2 class="login-heading">Login Form</h2>
+    <div class="out">
+      <div class="left"></div>
+      <div class="right">
+        <form class="login-form" method="post" action="/validate">
+          <h2 class="login-heading">Login Form</h2>
 
-      <label class="label" for="email">Email : </label>
-      <input class="input-field" type="email" name="email" required /><br /><br />
+          <div class="form-control">
+            <input required="" type="email" name="email" />
+            <label>
+              <span style="transition-delay: 100ms">Email</span>
+            </label>
+          </div>
 
-      <label class="label" for="password">Password : </label>
-      <div class="inp-box">
-        <input id="pass" class="input-field" type="password" name="password" required/>
-        <img id="eyeicon" src="/image/eye-close.png" />
+          <div class="form-control password-container">
+            <input required="" type="password" name="password" id="password" />
+            <label>
+              <span style="transition-delay: 100ms">Password</span>
+            </label>
+            <span id="toggle-password" class="password-toggle">
+              <img id="toggle-icon" src="../image/eye-close.png" />
+            </span>
+          </div>
+
+          <div class="login__check">
+            <div class="login__check-group">
+              <input
+                type="checkbox"
+                class="login__check-input"
+                id="login-check"
+              />
+              <label for="login-check" class="login__check-label"
+                >Remember me</label
+              >
+            </div>
+
+            <a href="#" class="login__forgot">Forgot Password?</a>
+          </div>
+
+          <div class="but">
+            <button class="button" type="submit">
+              <p>Login</p>
+            </button>
+            
+          </div>
+
+          <p class="login__register">
+            Don't have an account? <a href="register">Register</a>
+          </p>
+        </form>
       </div>
-      <br /><br />
-
-      <div class="but">
-        <input class="submit-button" type="submit" value="Login" />
-      </div>
-    </form>
+    </div>
 
     <script>
-      let eyeicon = document.getElementById("eyeicon");
-      let pass = document.getElementById("pass");
-      eyeicon.onclick = function () {
-        if (pass.type == "password") {
-          pass.type = "text";
-          eyeicon.src = "/image/eye-open.png";
-        } else {
-          pass.type = "password";
-          eyeicon.src = "/image/eye-close.png";
-        }
-      };
+      document
+        .getElementById("toggle-password")
+        .addEventListener("click", function () {
+          const passwordField = document.getElementById("password");
+          const toggleIcon = document.getElementById("toggle-icon");
+          if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleIcon.src = "../image/eye-open.png"; // Path to the unlock icon
+          } else {
+            passwordField.type = "password";
+            toggleIcon.src = "../image/eye-close.png"; // Path to the lock icon
+          }
+        });
     </script>
   </body>
 </html>

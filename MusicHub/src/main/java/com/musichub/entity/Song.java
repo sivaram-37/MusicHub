@@ -19,7 +19,7 @@ public class Song {
 	@Column(nullable = false)
 	private String name;
 	private String artist;
-	private String genre;
+	private String albam;
 	private String link;
 	
 	@ManyToMany
@@ -30,12 +30,12 @@ public class Song {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Song(int id, String name, String artist, String genre, String link, List<Playlist> playlists) {
+	public Song(int id, String name, String artist, String albam, String link, List<Playlist> playlists) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.artist = artist;
-		this.genre = genre;
+		this.albam = albam;
 		this.link = link;
 		this.playlists = playlists;
 	}
@@ -64,12 +64,12 @@ public class Song {
 		this.artist = artist;
 	}
 
-	public String getGenre() {
-		return genre;
+	public String getAlbam() {
+		return albam;
 	}
 
-	public void setGenre(String genre) {
-		this.genre = genre;
+	public void setAlbam(String albam) {
+		this.albam = albam;
 	}
 
 	public String getLink() {
@@ -90,7 +90,7 @@ public class Song {
 
 	@Override
 	public String toString() {
-		return "Song [id=" + id + ", name=" + name + ", artist=" + artist + ", genre=" + genre + ", link=" + link
+		return "Song [id=" + id + ", name=" + name + ", artist=" + artist + ", albam=" + albam + ", link=" + link
 				+ ", playlists=" + playlists + "]";
 	}
 

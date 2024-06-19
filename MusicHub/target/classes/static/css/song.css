@@ -1,4 +1,3 @@
-@charset "ISO-8859-1";
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(
@@ -40,6 +39,18 @@ form {
   color: #ffffff; /* Light color for labels */
 }
 
+.inp-box {
+  display: flex;
+  align-items: center;
+  background-color: #333333;
+  border-radius: 5px;
+}
+
+.inp-box img {
+  width: 25px;
+  cursor: pointer;
+}
+
 .input-field {
   width: calc(100% - 22px); /* Adjust width to fit within form padding */
   padding: 10px;
@@ -51,7 +62,8 @@ form {
 }
 
 .but {
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 .submit-button {

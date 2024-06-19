@@ -31,6 +31,7 @@ public class PlaylistServiceImpl implements PlaylistService{
 		List<Playlist> playlists = playlistRepository.findAll();
 		return playlists;
 	}
+
 	
 	
 }

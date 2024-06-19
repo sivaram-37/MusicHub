@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="ISO-8859-1">
+  <head>
+    <meta charset="ISO-8859-1" />
     <title>Add Playlist</title>
     <link rel="stylesheet" href="/css/playlist.css" />
-</head>
-<body>
-    <form action="/saveplaylist" method="post">
-    	<h2 class="heading" >Create Playlist</h2>
-        <label class="label">Playlist Name : </label>
-        <input class="input-field" type="text" name="name" required/><br/><br/>
-        <div th:each="song : ${songs}">
-            <input type="checkbox" th:name="songs" th:value="${song.id}"/>
-            <label th:text="${song.name}"></label>
-        </div><br/>
-        <div class="but">
-        	<input class="submit-button" type="submit" value="CREATE PLAYLIST" />
-      	</div>
-    </form>
-</body>
+    <link rel="icon" href="/image/logo.jpg" />
+  </head>
+  <body>
+    <header>
+      <div class="logo"></div>
+      <div class="title"><p>Create Playlist</p></div>
+      <div class="button-box">
+        <button class="button" onclick="history.back()">
+          <p>Back</p>
+        </button>
+      </div>
+    </header>
+    <div class="content">
+      <div class="left">
+        <div class="img"></div>
+      </div>
+      <div class="right">
+        <form action="/saveplaylist" method="post">
+          <div class="playlist-name-container">
+            <input
+              class="input-field"
+              type="text"
+              name="name"
+              placeholder="Enter Playlist Name"
+              required
+            />
+            <input class="submit-button" type="submit" value="Create" />
+          </div>
+          <div class="song-list">
+            <div class="song-container" th:each="song : ${songs}">
+              <input type="checkbox" th:name="songs" th:value="${song.id}" />
+              <div class="song-header">
+                <p class="song-title" th:text="${song.name}"></p>
+                <p class="song-albam" th:text="${song.albam}"></p>
+                <p class="song-albam" th:text="${song.artist}"></p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

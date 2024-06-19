@@ -1,55 +1,398 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Customer Home</title>
-<link rel="stylesheet" href="/css/adminhome.css" />
-<link rel="stylesheet" href="/css/viewsongs.css" />
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Customer Home</title>
+    <link rel="stylesheet" href="/css/customerhome.css" />
+    <link rel="icon" href="/image/logo.jpg" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+  </head>
+  <body>
+  	<header>
+        <div class="logo"></div>
+        <div class="title"><p>Home</p></div>
+        <div class="button-box">
+          <form action="logout">
+          	<button class="button"><p>Logout</p></button>
+          </form>
+        </div>
+      </header>
+    <div th:unless="${ispremium}" class="non-premium">
+      <nav class="text-container">
+        <div class="img"></div>
+        <div class="text">
+          <h2>Sorry !!!</h2>
+          <h4>You are not subscribed to our application.</h4>
+          <h4>Subcribe Now , to enjoy some special features of MusicHub</h4>
+          <h4 style="color: chartreuse">
+            After buying the premium subscription please logout and login to
+            access the website
+          </h4>
+        </div>
+        <div class="container">
+          <div class="plate">
+            <div class="black">
+              <div class="border">
+                <div class="white">
+                  <div class="center"></div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-</head>
-<body>
-	
-	<div th:unless="${ispremium}" class="non-premium">
-		<div class="outer-box">
-			<div class="button-box">
-				<form action="pay">
-					<input class="" type="submit" value="GET PREMIUM">
-				</form>
-			</div>
+          <div class="player">
+            <div class="rect"></div>
+            <div class="circ"></div>
+          </div>
+        </div>
+      </nav>
+      <div class="all-plans">
+        <div class="plan">
+          <div class="inner">
+            <span class="pricing">
+              <span> ₹49 <small>/ month</small> </span>
+            </span>
+            <p class="title">Monthly Plan</p>
+            <p class="info">Membership plan for 1 month</p>
+            <ul class="features">
+              <li>
+                <span class="icon">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      fill="currentColor"
+                      d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                    ></path>
+                  </svg>
+                </span>
+                <span><strong>Uninterrupted Music</strong></span>
+              </li>
 
-			<div class="button-box">
-				<form action="logout">
-					<button>Logout</button>
-				</form>
-			</div>
-		</div>
-	</div>
+              <li>
+                <span class="icon">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      fill="currentColor"
+                      d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                    ></path>
+                  </svg>
+                </span>
+                <span><strong>High Quality </strong>songs</span>
+              </li>
+              <li>
+                <span class="icon">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      fill="currentColor"
+                      d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>Listen over <strong>1 Million+ songs</strong></span>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-	<div th:if="${ispremium}" class="premium">
-		<div class="song-div">
-    <table class="song-table">
-        <thead>
-            <tr>
-                <th class="header">Tracks</th>
-                <th class="header">Artists</th>
-                <th class="header">Genre</th>
-                <th class="header">Play</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="song : ${songs}">
-                <td class="song-cell name-cell" th:text="${song.name}"></td>
-                <td class="song-cell artist-cell" th:text="${song.artist}"></td>
-                <td class="song-cell genre-cell" th:text="${song.genre}"></td>
-                <td class="song-cell play-cell">
-                    <button onclick="playSong('${song.name}', '${song.artist}', '${song.link}')">Play</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="plan">
+          <div class="inner">
+            <span class="pricing">
+              <span> ₹129 <small>/ 3 month</small> </span>
+            </span>
+            <p class="title">Quaterly Plan</p>
+            <p class="info">Membership plan for 3 month</p>
+            <ul class="features">
+              <li>
+                <span class="icon">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      fill="currentColor"
+                      d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                    ></path>
+                  </svg>
+                </span>
+                <span><strong>Uninterrupted Music</strong></span>
+              </li>
+              <li>
+                <span class="icon">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      fill="currentColor"
+                      d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                    ></path>
+                  </svg>
+                </span>
+                <span><strong>High Quality </strong>songs</span>
+              </li>
+              <li>
+                <span class="icon">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      fill="currentColor"
+                      d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>Listen over <strong>1 Million+ songs</strong></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="plan">
+          <div class="inner">
+            <span class="pricing">
+              <span> ₹499 <small>/ year</small> </span>
+            </span>
+            <p class="title">Annually Plan</p>
+            <p class="info">Membership plan for 1 year</p>
+            <ul class="features">
+              <li>
+                <span class="icon">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      fill="currentColor"
+                      d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                    ></path>
+                  </svg>
+                </span>
+                <span><strong>Uninterrupted Music</strong></span>
+              </li>
+              <li>
+                <span class="icon">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      fill="currentColor"
+                      d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                    ></path>
+                  </svg>
+                </span>
+                <span><strong>High Quality </strong>songs</span>
+              </li>
+              <li>
+                <span class="icon">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      fill="currentColor"
+                      d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
+                    ></path>
+                  </svg>
+                </span>
+                <span>Listen over <strong>1 Million+ songs</strong></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="action">
+        <button id="showOverlayBtn" class="button-plan">
+          Choose plan
+        </button>
+      </div>
+      <div id="overlay" class="overlay">
+        <div class="overlay-content">
+          <span class="close" id="closeOverlay">&times;</span>
+          <form class="overlay-form" id="payment-form">
+            <label class="overlay-label" for="chooseOption"
+              >Choose the plan:</label
+            >
+            <select class="overlay-input" id="chooseOption" name="chooseOption">
+              <option value="49">Monthly Plan - ₹49</option>
+              <option value="129">Quaterly Plan - ₹129</option>
+              <option value="499">Annual Plan - ₹499</option>
+            </select>
+
+            <button class="buy-button overlay-button" type="submit">BUY</button>
+          </form>
+        </div>
+      </div>
     </div>
-	</div>
 
+    <div th:if="${ispremium}" class="premium">
+      
+      <div class="content">
+        <div class="left">
+          <div class="img-music"></div>
+          <div class="more">
+          <div class="button-box">
+            <form action="viewsong">
+              <button class="button">
+                <p>All Songs</p>
+              </button>
+            </form>
+          </div>
+          <div class="button-box">
+            <form action="viewplaylist">
+              <button class="button">
+                <p>All Playlist</p>
+              </button>
+            </form>
+          </div>
+        </div>
+        </div>
+        <div class="right">
+          <div class="search-container">
+            <form action="#" method="GET">
+              <input type="text" placeholder="Search..." name="search" />
+              <button type="submit" class="search-but">Search</button>
+            </form>
+          </div>
+          <div class="song-list">
+            <div class="song-container" th:each="song : ${songs}">
+              <div class="song-header">
+                <p class="song-title" th:text="${song.name}"></p>
+                <audio controls>
+                  <source th:src="${song.link}" type="audio/mp3" />
+                </audio>
+              </div>
+              <div class="song-header">
+                <p class="song-albam" th:text="${song.albam}"></p>
+                <p class="song-artist" th:text="${song.artist}"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-</body>
+    <!-- Overlay Script -->
+    <script>
+      const showOverlayBtn = document.getElementById("showOverlayBtn");
+      const overlay = document.getElementById("overlay");
+      const closeOverlay = document.getElementById("closeOverlay");
+
+      showOverlayBtn.addEventListener("click", function () {
+        overlay.style.display = "block";
+      });
+
+      closeOverlay.addEventListener("click", function () {
+        overlay.style.display = "none";
+      });
+    </script>
+
+    <!-- Payment Script -->
+    <script>
+      $(document).ready(function () {
+        $(".buy-button").click(function (e) {
+          e.preventDefault();
+          var form = $(this).closest("form");
+
+          createOrder();
+        });
+      });
+
+      function createOrder() {
+        $.post("/createOrder")
+          .done(function (order) {
+            order = JSON.parse(order);
+            var options = {
+              key: "rzp_test_xTyAxQNPKEXLhD",
+              amount: order.amount_due.toString(),
+              currency: "INR",
+              name: "Music Hub",
+              description: "Test Transaction",
+              order_id: order.id,
+              handler: function (response) {
+                verifyPayment(
+                  response.razorpay_order_id,
+                  response.razorpay_payment_id,
+                  response.razorpay_signature
+                );
+              },
+              prefill: {
+                name: "Your Name",
+                email: "test@example.com",
+                contact: "9999999999",
+              },
+              notes: {
+                address: "Your Address",
+              },
+              theme: {
+                color: "#F37254",
+              },
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+          })
+          .fail(function (error) {
+            console.error("Error:", error);
+          });
+      }
+
+      function verifyPayment(orderId, paymentId, signature) {
+        $.post("/verify", {
+          orderId: orderId,
+          paymentId: paymentId,
+          signature: signature,
+        })
+          .done(function (isValid) {
+            if (isValid) {
+              alert("Payment successful");
+              window.location.href = "payment-success";
+            } else {
+              alert("Payment failed");
+              window.location.href = "payment-failure";
+            }
+          })
+          .fail(function (error) {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </body>
 </html>

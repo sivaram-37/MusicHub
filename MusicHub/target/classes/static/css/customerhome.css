@@ -1,0 +1,493 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(../image/background.png);
+  color: #ffffff; /* Light text color for contrast */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  border: 1px solid #a9a9a9;
+  padding: 2.5rem 1.5rem;
+  backdrop-filter: blur(10px);
+  height: 8vh;
+  padding: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  background-image: url(../image/logo.jpg);
+  background-size: cover;
+  height: 8vh;
+  width: 8vh;
+}
+
+.title p {
+  letter-spacing: 0.2rem;
+  font-weight: 700;
+  font-size: xx-large;
+  margin-top: 7px;
+}
+.button-box {
+  padding: 2px;
+}
+button {
+  background-color: rgba(255, 255, 255, 0.4); /* Purple background for button */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: large;
+  padding: 0px 15px;
+}
+
+button:hover {
+  background-color: #fff; /* Darker purple on hover */
+  color: #000;
+}
+
+.text-container {
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  width: 175px;
+  height: 175px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0 0 #675d50;
+  background-image: url(../image/musichub-img.jpg);
+  background-size: cover;
+}
+
+.text {
+  text-align: center;
+  padding: 0 2rem 0 2rem;
+}
+
+/* disc player img */
+.container {
+  width: 175px;
+  height: 175px;
+  background-color: #abc4aa;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 5px 5px 0 0 #675d50;
+}
+
+.plate {
+  width: fit-content;
+}
+
+.plate .black,
+.plate .white,
+.plate .center,
+.plate .border {
+  border-radius: 100%;
+}
+
+.container,
+.plate .black,
+.plate .white,
+.plate .border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plate .black {
+  width: 150px;
+  height: 150px;
+  background-color: #675d50;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.plate .white {
+  width: 70px;
+  height: 70px;
+  background-color: #f3deba;
+}
+
+.plate .center {
+  width: 20px;
+  height: 20px;
+  background-color: #675d50;
+}
+
+.plate .border {
+  width: 111px;
+  height: 111px;
+  border-top: 3px solid #f3deba;
+  border-bottom: 3px solid #f3deba;
+  border-left: 3px solid #675d50;
+  border-right: 3px solid #675d50;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  rotate: -45deg;
+}
+
+.player .circ {
+  width: 25px;
+  height: 25px;
+  background-color: #f3deba;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.player .rect {
+  width: 10px;
+  height: 55px;
+  background-color: #f3deba;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+}
+
+/* Plans */
+.all-plans {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 22rem;
+}
+.plan {
+  border-radius: 16px;
+  box-shadow: 0 30px 30px -25px rgba(0, 38, 255, 0.205);
+  padding: 10px;
+  background-color: #fff;
+  color: #697e91;
+  max-width: 300px;
+}
+
+.plan strong {
+  font-weight: 600;
+  color: #425275;
+}
+
+.plan .inner {
+  align-items: center;
+  padding: 20px;
+  padding-top: 40px;
+  background-color: #ecf0ff;
+  border-radius: 12px;
+  position: relative;
+}
+
+.plan .pricing {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #bed6fb;
+  border-radius: 99em 0 0 99em;
+  display: flex;
+  align-items: center;
+  padding: 0.625em 0.75em;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #425475;
+}
+
+.plan .pricing small {
+  color: #707a91;
+  font-size: 0.75em;
+  margin-left: 0.25em;
+}
+
+.plan .title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #425675;
+}
+
+.plan .title + * {
+  margin-top: 0.75rem;
+}
+
+.plan .info + * {
+  margin-top: 1rem;
+}
+
+.plan .features {
+  display: flex;
+  flex-direction: column;
+}
+
+.plan .features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.plan .features li + * {
+  margin-top: 0.75rem;
+}
+
+.plan .features .icon {
+  background-color: #1fcac5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.plan .features .icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.plan .features + * {
+  margin-top: 1.25rem;
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+}
+
+.button-plan {
+  background-color: #6558d3;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-align: center;
+  border: 0;
+  outline: 0;
+  width: 30%;
+  padding: 0.625em 0.75em;
+  text-decoration: none;
+}
+
+.button-plan:hover,
+.button-plan:focus {
+  background-color: #4133b7;
+}
+
+/* Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.overlay-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.overlay-form {
+  display: flex;
+  flex-direction: column;
+  height: 10rem;
+}
+
+.overlay-label {
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.overlay-input {
+  padding: 5px;
+  margin-bottom: 4rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #8484847d;
+}
+.overlay-button {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-weight: 700;
+  letter-spacing: 1mm;
+}
+
+.overlay-button {
+  background-color: #6558d3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay-button:hover,
+.overlay-button:focus {
+  background-color: #4133b7;
+}
+
+/* Song */
+.content {
+  display: flex;
+  height: 88vh;
+}
+.left {
+  width: 25%;
+}
+.img-music {
+  background-image: url(../image/musichub-img.jpg);
+  background-size: contain;
+  width: 65%;
+  margin: 15%;
+  aspect-ratio: 1;
+  box-shadow: 0 4px 8px 0 hsla(0, 0%, 100%, 0.1),
+    0 6px 20px 0 hsla(0, 0%, 100%, 0.1);
+}
+.more {
+  margin: 15%;
+}
+.right {
+  width: 75%;
+  padding: 0.5%;
+}
+
+.song-list {
+  overflow: auto; /* Enables scroll if content overflows */
+  height: 88%; /* Set a fixed height */
+  width: 99%; /* Set a width if desired */
+}
+.song-container {
+  width: 99%;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+.song-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.song-title {
+  font-size: 24px;
+  font-weight: normal;
+  color: #000;
+  margin: 0;
+}
+
+.song-artist,
+.song-albam {
+  font-size: 18px;
+  color: #4d4d4d;
+  margin: 0;
+}
+audio {
+  margin: 5px 0px 10px 0px;
+  height: 35px;
+  width: 35%;
+}
+
+.search-container {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 98.8%;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+input[type="text"] {
+  /* Style the input field */
+  height: 100%;
+  width: 98%; /* Take up full width of container */
+  padding: 10px; /* Add padding */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 10px; /* Add border radius */
+  background-color: rgba(0, 0, 0, 0.322);
+  color: #fff;
+}
+
+.search-but {
+  /* Style the submit button */
+  background-color: #fff; /* Button background color */
+  color: #000; /* Button text color */
+  border: none; /* Remove default button border */
+  border-radius: 10px; /* Add border radius */
+  padding: 8px 20px; /* Add padding */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  position: absolute;
+  top: 0px;
+  right: 1px;
+}
+
+button[type="submit"]:hover {
+  /* Style the submit button on hover */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.4
+  ); /* Darken button background color */
+  color: #fff;
+}
+
+.song-container:nth-child(even) {
+  /* background-color: #1e1e1e; */
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.song-container:nth-child(odd) {
+  /* background-color: #252525; */
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.song-container:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+

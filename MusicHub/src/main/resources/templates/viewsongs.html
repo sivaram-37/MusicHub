@@ -1,117 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Display Songs</title>
-    <link rel="stylesheet" type="text/css" href="/css/viewsongs.css">
-</head>
-<body>
-	<div class="songpage">
-	<div class="albumcover">
-		
-	</div>
-	<div class="song-div">
-    <table class="song-table">
-        <thead>
-            <tr>
-                <th class="header">Tracks</th>
-                <th class="header">Artists</th>
-                <th class="header">Genre</th>
-                <th class="header">Play</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="song : ${songs}">
-                <td class="song-cell name-cell" th:text="${song.name}"></td>
-                <td class="song-cell artist-cell" th:text="${song.artist}"></td>
-                <td class="song-cell genre-cell" th:text="${song.genre}"></td>
-                <td class="song-cell play-cell">
-                    <button onclick="playSong('${song.name}', '${song.artist}', '${song.link}')">Play</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-    </div>
-
-    <div id="music-player" style="display: none;">
-        <div class="song-info">
-            <span id="current-song"></span>
+    <link rel="stylesheet" type="text/css" href="/css/viewsongs.css" />
+    <link rel="icon" href="/image/logo.jpg" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo"></div>
+      <div class="title"><p>Songs</p></div>
+      <div class="button-box">
+        
+        <form action="logout">
+          	<button class="button"><p>Logout</p></button>
+          </form>
+      </div>
+    </header>
+    <div class="content">
+      <div class="left">
+        <div class="img"></div>
+        <div class="more">
+          <div class="button-box">
+            <form action="viewsong">
+              <button class="button">
+                <p>All Songs</p>
+              </button>
+            </form>
+          </div>
+          <div class="button-box">
+            <form action="viewplaylist">
+              <button class="button">
+                <p>All Playlist</p>
+              </button>
+            </form>
+          </div>
         </div>
-        <div class="controls">
-            <button onclick="previousSong()">&#9664;</button>
-            <button id="play-pause" onclick="togglePlayPause()">&#9654;</button>
-            <button onclick="nextSong()">&#9654;&#9654;</button>
-            <div id="volume-control">
-                <button onclick="toggleMute()">🔊</button>
-                <input type="range" id="volume-slider" min="0" max="1" step="0.01" oninput="setVolume(this.value)">
+      </div>
+      <div class="right">
+        <div class="search-container">
+          <form action="#" method="GET">
+            <input type="text" placeholder="Search..." name="search" />
+            <button type="submit" class="search-but">Search</button>
+          </form>
+        </div>
+        <div class="song-list">
+          <div class="song-container" th:each="song : ${songs}">
+            <div class="song-header">
+              <p class="song-title" th:text="${song.name}"></p>
+              <audio controls>
+                <source th:src="${song.link}" type="audio/mp3" />
+              </audio>
             </div>
+            <div class="song-header">
+              <p class="song-albam" th:text="${song.albam}"></p>
+              <p class="song-artist" th:text="${song.artist}"></p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-
-    <audio id="audio-player"></audio>
-
-    <script>
-        let songs = [
-            /* Replace this with your song data */
-            {name: 'Song 1', artist: 'Artist 1', link: 'song1.mp3'},
-            {name: 'Song 2', artist: 'Artist 2', link: 'song2.mp3'},
-            // Add more songs here
-        ];
-        let currentSongIndex = -1;
-
-        function playSong(name, artist, link) {
-            document.getElementById('music-player').style.display = 'flex';
-            document.getElementById('current-song').textContent = `${name} - ${artist}`;
-            const audioPlayer = document.getElementById('audio-player');
-            audioPlayer.src = link;
-            audioPlayer.play();
-            document.getElementById('play-pause').textContent = '||';
-            currentSongIndex = songs.findIndex(song => song.name === name && song.artist === artist);
-        }
-
-        function togglePlayPause() {
-            const audioPlayer = document.getElementById('audio-player');
-            if (audioPlayer.paused) {
-                audioPlayer.play();
-                document.getElementById('play-pause').textContent = '||';
-            } else {
-                audioPlayer.pause();
-                document.getElementById('play-pause').textContent = '>';
-            }
-        }
-
-        function previousSong() {
-            if (currentSongIndex > 0) {
-                currentSongIndex--;
-                const song = songs[currentSongIndex];
-                playSong(song.name, song.artist, song.link);
-            }
-        }
-
-        function nextSong() {
-            if (currentSongIndex < songs.length - 1) {
-                currentSongIndex++;
-                const song = songs[currentSongIndex];
-                playSong(song.name, song.artist, song.link);
-            }
-        }
-
-        function setVolume(value) {
-            const audioPlayer = document.getElementById('audio-player');
-            audioPlayer.volume = value;
-        }
-
-        function toggleMute() {
-            const audioPlayer = document.getElementById('audio-player');
-            const volumeButton = document.querySelector('#volume-control button');
-            if (audioPlayer.muted) {
-                audioPlayer.muted = false;
-                volumeButton.textContent = '🔊';
-            } else {
-                audioPlayer.muted = true;
-                volumeButton.textContent = '🔇';
-            }
-        }
-    </script>
-</body>
+  </body>
 </html>

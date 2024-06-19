@@ -1,5 +1,4 @@
 
-
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(
@@ -11,17 +10,25 @@ body {
   color: #ffffff; /* Light text color for contrast */
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  flex-direction: column;
 }
-
-h2 {
-  color: #ffffff; /* Light color for the heading */
+.out {
+  display: flex;
 }
-
+.left {
+  width: 40%;
+  height: 100vh;
+  background-image: url(/image/musichub-img.jpg);
+  background-position-x: -60px;
+  background-size: cover;
+}
+.right {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
 .outer-box {
   background-color: #1e1e1e; /* Darkest color of the gradient background */
   border: 1px solid #ffffff; /* White border */

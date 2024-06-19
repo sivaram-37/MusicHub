@@ -33,6 +33,7 @@ public class PaymentController {
 	public String createOrder(HttpSession session) {
 
 		int  amount = 49;
+		
 		Order order=null;
 		try {
 			RazorpayClient razorpay=new RazorpayClient("rzp_test_xTyAxQNPKEXLhD", "UKKMAS9DWyM7m0Gbw1mbVU30");
